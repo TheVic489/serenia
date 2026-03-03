@@ -71,8 +71,8 @@ export default function SOSScreen() {
           playsInSilentModeIOS: true,
           staysActiveInBackground: false,
           shouldDuckAndroid: true,
-          interruptionModeAndroid: InterruptionModeAndroid.DUCK_OTHERS,
-          interruptionModeIOS: InterruptionModeIOS.DUCK_OTHERS,
+          interruptionModeAndroid: InterruptionModeAndroid.DuckOthers,
+          interruptionModeIOS: InterruptionModeIOS.DuckOthers,
           playThroughEarpieceAndroid: false,
         });
 

@@ -60,7 +60,7 @@ export default function HomeScreen() {
               <Text style={styles.subtitle}>¿Cómo estás hoy?</Text>
             </View>
             <View style={styles.logoContainer}>
-              <Image source={require('../../../assets/images/logo.jpg')} style={styles.logoImage} />
+              <Image source={require('../../../assets/images/logo_recortado.jpg')} style={styles.logoImage} />
             </View>
           </View>
           <View style={styles.quoteCard}>
