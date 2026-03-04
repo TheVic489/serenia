@@ -51,18 +51,23 @@ export default function HomeScreen() {
         scrollEventThrottle={16}
         contentContainerStyle={{ paddingBottom: 20 }}
       >
-        <Animated.View style={[styles.hero, { paddingTop: insets.top + 16, opacity: headerOpacity }]}>
-          <View style={styles.heroTop}>
-            <View>
-              <Text style={styles.greeting}>
-                {profile.name ? `Hola, ${profile.name}` : 'Bienvenido a Serenia'}
-              </Text>
-              <Text style={styles.subtitle}>¿Cómo estás hoy?</Text>
-            </View>
-            <View style={styles.logoContainer}>
-              <Image source={require('../../../assets/images/logo_recortado.jpg')} style={styles.logoImage} />
-            </View>
+        <Animated.View style={[styles.hero, { paddingTop: insets.top + 20, opacity: headerOpacity }]}>
+          <Image 
+            source={require('../../../assets/images/logo_recortado.jpg')} 
+            style={styles.backgroundLogo} 
+            resizeMode="contain"
+          />
+          <View style={styles.logoCircle}>
+            <Image source={require('../../../assets/images/logo_recortado.jpg')} style={styles.mainLogo} />
           </View>
+          
+          <View style={styles.heroCenter}>
+            <Text style={styles.greeting}>
+              {profile.name ? `Hola, ${profile.name}` : 'Bienvenido a Serenia'}
+            </Text>
+            <Text style={styles.subtitle}>¿Cómo te sientes hoy?</Text>
+          </View>
+
           <View style={styles.quoteCard}>
             <Text style={styles.quoteText}>&quot;{quote}&quot;</Text>
           </View>
@@ -104,55 +109,78 @@ const styles = StyleSheet.create({
   },
   hero: {
     paddingHorizontal: 20,
-    paddingBottom: 16,
+    paddingBottom: 28,
     backgroundColor: Colors.cream,
-  },
-  heroTop: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 16,
-  },
-  greeting: {
-    fontSize: 24,
-    fontWeight: '700' as const,
-    color: Colors.text,
-    marginBottom: 2,
-  },
-  subtitle: {
-    fontSize: 15,
-    color: Colors.textSecondary,
-  },
-  logoContainer: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    position: 'relative',
     overflow: 'hidden',
     alignItems: 'center',
-    justifyContent: 'center',
   },
-  logoImage: {
+  backgroundLogo: {
+    position: 'absolute',
+    right: -40,
+    top: -20,
+    width: 300,
+    height: 300,
+    opacity: 0.04,
+    transform: [{ rotate: '-10deg' }],
+  },
+  logoCircle: {
+    width: 84,
+    height: 84,
+    borderRadius: 42,
+    backgroundColor: Colors.white,
+    padding: 3,
+    shadowColor: Colors.primary,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+    elevation: 6,
+    marginBottom: 16,
+    zIndex: 2,
+  },
+  mainLogo: {
     width: '100%',
     height: '100%',
-    borderRadius: 22,
+    borderRadius: 40,
+  },
+  heroCenter: {
+    alignItems: 'center',
+    marginBottom: 24,
+    zIndex: 1,
+  },
+  greeting: {
+    fontSize: 28,
+    fontWeight: '800' as const,
+    color: Colors.text,
+    marginBottom: 6,
+    letterSpacing: -0.8,
+    textAlign: 'center',
+  },
+  subtitle: {
+    fontSize: 17,
+    color: Colors.textSecondary,
+    opacity: 0.85,
+    textAlign: 'center',
   },
   quoteCard: {
     backgroundColor: Colors.white,
-    borderRadius: 14,
-    padding: 16,
-    borderLeftWidth: 3,
+    borderRadius: 18,
+    padding: 20,
+    borderLeftWidth: 5,
     borderLeftColor: Colors.primary,
     shadowColor: Colors.shadow,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 1,
-    shadowRadius: 4,
-    elevation: 2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 3,
+    width: '100%',
+    zIndex: 1,
   },
   quoteText: {
-    fontSize: 14,
+    fontSize: 15,
     color: Colors.textSecondary,
     fontStyle: 'italic',
-    lineHeight: 21,
+    lineHeight: 22,
   },
   tabRow: {
     flexDirection: 'row',
