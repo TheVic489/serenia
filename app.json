@@ -39,6 +39,9 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+     "router": {
+      "basePath": "/serenia"
     }
   }
 }
