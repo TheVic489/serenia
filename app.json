@@ -38,10 +38,8 @@
       "expo-web-browser"
     ],
     "experiments": {
-      "typedRoutes": true
-    },
-     "router": {
-      "origin": "/serenia"
+      "typedRoutes": true,
+      "baseUrl": "/serenia"
     }
   }
 }
